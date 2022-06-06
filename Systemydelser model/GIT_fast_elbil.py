@@ -102,8 +102,28 @@ plt.title('Fast forbrugsmønster mandag til søndag')
 plt.xticks(np.arange(0,168,8),time1,rotation=50)
 plt.legend()
 
-import array_to_latex as a2l
-latex_code = a2l.to_ltx(nat_y1, frmt = '{:6.2f}', arraytype = 'array')
+plt.figure(figsize=(10,5),dpi=400)
+plt.bar(x,np.array(uge_nat),color='blue',label='natopladning')
+plt.bar(x,uge_dag,color='red',label='dagsopladning')
+plt.bar(x,uge_ekstra,color='green',label='ekstraopladning')
+plt.xlabel('Time på ugen')
+plt.ylabel('Tilgængelig kapacitet i puljen [MW]')
+plt.title('Fast forbrugsmønster mandag til søndag')
+plt.xticks(np.arange(0,168,8),time1,rotation=90)
+plt.legend()
+
+plt.figure(figsize=(9,5))
+plt.bar(np.arange(0,24,1),uge_nat[:24],color='blue',label='natopladning')
+plt.bar(np.arange(0,24,1),uge_dag[:24],color='red',label='dagsopladning')
+plt.bar(np.arange(0,24,1),uge_ekstra[:24],color='green',label='ekstraopladning')
+plt.xlabel('Time på ugen')
+plt.ylabel('Tilgængelig kapacitet i puljen [MW]')
+plt.title('Fast forbrugsmønster mandag til søndag')
+#plt.xticks(np.arange(0,168,8),time1,rotation=50)
+plt.legend()
+
+#import array_to_latex as a2l
+#latex_code = a2l.to_ltx(nat_y1, frmt = '{:6.2f}', arraytype = 'array')
 
 m_energi = nat_y
 frakobling = nat_fra
